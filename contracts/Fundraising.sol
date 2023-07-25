@@ -14,6 +14,11 @@ contract Fundraising{
     mapping(address => uint256) public donations;
 
     uint256 public raisedAmount = 0;
-    uint256 public finishTime = block.timestamp + 2 weeks;  
     // block : 컨트랙트를 배포할 때, EVM에 의해 정의될 객체 | block.timestamp는 블록이 생성되는 날짜를 초로 기록
+    uint256 public finishTime = block.timestamp + 2 weeks;  
+
+    // 프로젝트 소유자가 모금하고자 하는 금액을 명시할 수 있도록 하겠다는 뜻
+    constructor(uint256 _targetAmount) {
+        targetAmount = _targetAmount;
+    }
 }
